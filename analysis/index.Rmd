@@ -8,4 +8,11 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+## Witaj!
+
+Nazywam się **Adam Bartosik**, studiuję **(WPISZ KIERUNEK)**.
+
+Ta strona została wykonana w pakiecie **workflowr** i opublikowana na **GitHub Pages**.
+
+### Moja uczelnia
+
