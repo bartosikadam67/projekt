@@ -1,0 +1,156 @@
+---
+title: "Analiza danych"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: flatly
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+## 2.3 Analiza danych w R – zakładka 3
+
+### Opis zbioru danych
+
+Analiza została wykonana na zbiorze danych `track_data_final.csv`.\
+Zbiór zawiera informacje o utworach muzycznych (popularność, długość utworu, treść explicit), a także dane dotyczące artystów oraz albumów.\
+Celem analizy jest opis danych, wykonanie prostych przekształceń oraz wizualizacja wybranych zależności.
+
+------------------------------------------------------------------------
+
+### Wczytanie danych i podgląd
+
+```{r}
+df <- readr::read_csv("track_data_final.csv", show_col_types = FALSE)
+
+summary(df$track_popularity)
+```
+
+------------------------------------------------------------------------
+
+### Statystyki opisowe
+
+```{r}
+df %>%
+  summarise(
+    liczba_utworow = n(),
+    srednia_popularnosc = round(mean(track_popularity, na.rm = TRUE), 2),
+    mediana_popularnosc = median(track_popularity, na.rm = TRUE),
+    srednia_dlugosc_ms = round(mean(track_duration_ms, na.rm = TRUE), 0)
+  )
+```
+
+```{r}
+cor(df$track_popularity, df$track_duration_ms, use = "complete.obs")
+```
+
+------------------------------------------------------------------------
+
+### Przekształcenia danych (dplyr)
+
+```{r}
+df2 <- df %>%
+  mutate(duration_min = track_duration_ms / 60000) %>%
+  filter(!is.na(track_popularity), !is.na(duration_min))
+```
+
+#### Popularność według typu albumu
+
+```{r}
+album_summary <- df2 %>%
+  filter(!is.na(album_type)) %>%
+  group_by(album_type) %>%
+  summarise(
+    liczba_utworow = n(),
+    srednia_popularnosc = round(mean(track_popularity, na.rm = TRUE), 2),
+    srednia_dlugosc_min = round(mean(duration_min, na.rm = TRUE), 2)
+  ) %>%
+  arrange(desc(srednia_popularnosc))
+
+album_summary
+```
+
+#### Top 10 artystów według średniej popularności
+
+```{r}
+top_artists <- df2 %>%
+  filter(!is.na(artist_name)) %>%
+  group_by(artist_name) %>%
+  summarise(
+    liczba_utworow = n(),
+    srednia_popularnosc = round(mean(track_popularity, na.rm = TRUE), 2)
+  ) %>%
+  filter(liczba_utworow >= 10) %>%
+  arrange(desc(srednia_popularnosc)) %>%
+  slice_head(n = 10)
+
+top_artists
+```
+
+------------------------------------------------------------------------
+
+## Wizualizacje
+
+### Wykres słupkowy – Top 10 artystów
+
+```{r}
+ggplot(top_artists, aes(x = reorder(artist_name, srednia_popularnosc),
+                        y = srednia_popularnosc)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Top 10 artystów wg średniej popularności",
+    x = "Artysta",
+    y = "Średnia popularność"
+  )
+```
+
+*Wykres słupkowy przedstawia dziesięciu artystów o najwyższej średniej popularności utworów (przy założeniu minimum 10 utworów w zbiorze). Widoczne są wyraźne różnice pomiędzy artystami, co wskazuje, że popularność utworów w dużym stopniu zależy od wykonawcy.*
+
+### Wykres liniowy – średnia popularność vs typ albumu
+
+```{r}
+album_line <- df2 %>%
+  filter(!is.na(album_type)) %>%
+  group_by(album_type) %>%
+  summarise(
+    srednia_popularnosc = mean(track_popularity, na.rm = TRUE)
+  )
+
+ggplot(album_line, aes(x = album_type, y = srednia_popularnosc, group = 1)) +
+  geom_line() +
+  geom_point() +
+  labs(
+    title = "Średnia popularność według typu albumu",
+    x = "Typ albumu",
+    y = "Średnia popularność"
+  )
+
+
+
+```
+
+*Wykres liniowy pokazuje średnią popularność utworów w zależności od typu albumu. Można zauważyć różnice pomiędzy poszczególnymi typami wydawnictw, co sugeruje, że forma publikacji (np. singiel lub album) może mieć wpływ na odbiór utworów przez słuchaczy.*
+
+### Histogram – długość utworów
+
+```{r}
+ggplot(df2, aes(x = duration_min)) +
+  geom_histogram(bins = 30, fill = "darkorange") +
+  labs(
+    title = "Histogram długości utworów",
+    x = "Długość utworu [min]",
+    y = "Liczba utworów"
+  )
+```
+
+*Histogram przedstawia rozkład długości utworów wyrażonej w minutach. Większość utworów mieści się w przedziale kilku minut, co jest zgodne z typową długością utworów muzycznych publikowanych na platformach streamingowych.*
