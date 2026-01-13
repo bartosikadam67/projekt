@@ -8,11 +8,10 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Witaj!
+## Strona główna
 
-Nazywam się **Adam Bartosik**, studiuję **(WPISZ KIERUNEK)**.
-
-Ta strona została wykonana w pakiecie **workflowr** i opublikowana na **GitHub Pages**.
+Nazywam się **Adam Bartosik**, studiuję **Informatykę i Inżynierię Danych**.
 
 ### Moja uczelnia
 
+![*Uniwersytet Przyrodniczy w Poznaniu*](images/UP_Poznan.jpg){width="50%"}
