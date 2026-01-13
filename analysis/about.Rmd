@@ -7,4 +7,66 @@ editor_options:
   chunk_output_type: console
 ---
 
-Describe your project.
+# Adam Bartosik
+**Poznań / Kalisz**  
+📧 97703@student.up.poznan.pl  
+🔗 Portfolio: link do dysku (do uzupełnienia)
+
+---
+
+## 👤 O mnie
+Jestem osobą zainteresowaną programowaniem oraz produkcją i realizacją nagrań dźwiękowych. Łączę umiejętności techniczne z doświadczeniem dydaktycznym, co pozwala mi skutecznie przekazywać wiedzę i pracować zespołowo. Aktualnie rozwijam się w kierunku IT oraz technologii audio.
+
+---
+
+## 🎓 Wykształcenie
+
+**I Liceum Ogólnokształcące im. Adama Asnyka w Kaliszu**  
+*Wykształcenie średnie*  
+2019 – 2023  
+
+**Szkoła Muzyki Nowoczesnej we Wrocławiu**  
+*Kierunek: Technik realizacji nagrań*  
+2024 – 2026  
+- w trakcie kształcenia  
+- oczekiwanie na wyniki egzaminów zawodowych  
+
+---
+
+## 🛠 Umiejętności
+
+### Techniczne
+- Programowanie (podstawy)
+- Obsługa pakietu Microsoft Office
+- Produkcja i realizacja nagrań dźwiękowych
+
+### Narzędzia i programy
+- Ableton Live
+- Microsoft Office
+- Visual Studio
+
+### Języki obce
+- Angielski – komunikatywny
+
+### Umiejętności miękkie
+- Praca zespołowa  
+- Umiejętności dydaktyczne  
+- Komunikatywność  
+- Samodzielność i dobra organizacja pracy  
+
+---
+
+## 💼 Doświadczenie
+
+**Code Now / IT Korepetycje**  
+*Korepetytor informatyki*  
+2023 – obecnie  
+- przekazywanie wiedzy z zakresu programowania  
+- nauczanie obsługi pakietu Microsoft Office  
+- wprowadzanie do podstaw SQL  
+- przygotowanie uczniów do egzaminu maturalnego  
+- dostosowywanie metod nauczania do indywidualnych potrzeb ucznia  
+
+---
+
+
