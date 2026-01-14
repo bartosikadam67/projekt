@@ -6,7 +6,7 @@ navbar:
   - text: Home
     href: index.html
   - text: CV
-    href: cv.html
+    href: about.html
   - text: Analiza danych
     href: analiza.html
 output:
