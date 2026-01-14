@@ -281,7 +281,7 @@ $(document).ready(function () {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -292,8 +292,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -302,13 +302,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2026-01-13
+<strong>Last updated:</strong> 2026-01-14
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>projekt/</code> <span
@@ -331,33 +331,36 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcombartosikadam67projekttree22f32c7f2106326a3fe71a0861e767fad4e45cfbtargetblank22f32c7a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcombartosikadam67projekttree6187f675e6ee003847cdb42e940daa0ca1065e6ftargetblank6187f67a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/bartosikadam67/projekt/tree/22f32c7f2106326a3fe71a0861e767fad4e45cfb" target="_blank">22f32c7</a>
+<a href="https://github.com/bartosikadam67/projekt/tree/6187f675e6ee003847cdb42e940daa0ca1065e6f" target="_blank">6187f67</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcombartosikadam67projekttree22f32c7f2106326a3fe71a0861e767fad4e45cfbtargetblank22f32c7a"
+id="strongRepositoryversionstrongahrefhttpsgithubcombartosikadam67projekttree6187f675e6ee003847cdb42e940daa0ca1065e6ftargetblank6187f67a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -367,7 +370,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/bartosikadam67/projekt/tree/22f32c7f2106326a3fe71a0861e767fad4e45cfb" target="_blank">22f32c7</a>.
+<a href="https://github.com/bartosikadam67/projekt/tree/6187f675e6ee003847cdb42e940daa0ca1065e6f" target="_blank">6187f67</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -385,11 +388,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  analysis/analiza.Rmd
-
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Modified:   analysis/index.Rmd
 
 </code></pre>
 <p>
@@ -433,6 +433,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/bartosikadam67/projekt/31b083a5de1247478be57ed142185c6c8ff987fb/docs/index.html" target="_blank">31b083a</a>
+</td>
+<td>
+bartosikadam67
+</td>
+<td>
+2026-01-13
+</td>
+<td>
+aktualizacja
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -517,9 +534,10 @@ Start workflowr project.
 <div class="float">
 <img src="images/UP_Poznan.jpg" style="width:50.0%"
 alt="Uniwersytet Przyrodniczy w Poznaniu" />
-<div class="figcaption"><em>Uniwersytet Przyrodniczy w
-Poznaniu</em></div>
+<div class="figcaption">Uniwersytet Przyrodniczy w Poznaniu</div>
 </div>
+<hr />
+<p><em>strona została wykonana w workflow</em></p>
 </div>
 </div>
 </div>

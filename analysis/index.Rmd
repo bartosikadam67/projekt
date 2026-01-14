@@ -14,4 +14,8 @@ Nazywam się **Adam Bartosik**, studiuję **Informatykę i Inżynierię Danych**
 
 ### Moja uczelnia
 
-![*Uniwersytet Przyrodniczy w Poznaniu*](images/UP_Poznan.jpg){width="50%"}
+![Uniwersytet Przyrodniczy w Poznaniu](images/UP_Poznan.jpg){width="50%"}
+
+---
+
+*strona została wykonana w workflow*
