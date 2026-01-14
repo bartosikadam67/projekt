@@ -1,0 +1,155 @@
+---
+title: "Moje zainteresowania"
+subtitle: "fajna prezentacja"
+author: "Adam Bartosik"
+format:
+  revealjs:
+    theme: simple
+    transition: slide
+    slide-number: true
+    center: true
+    incremental: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Plan
+
+- Dobra muzyka
+- Sporty ekstremalne:
+  - Dart
+  - Szachy
+- R Studio i wykresy (dużo i bez sensu)
+
+---
+
+## Kim jestem
+
+- Lubię dobrą muzykę
+- Uprawiam sporty ekstremalne (dart + szachy)
+- Tworzę wykresy w R Studio, bo mogę
+
+---
+
+## Dobra muzyka
+
+- Poprawia koncentrację
+- Buduje klimat
+- Ratuje poniedziałki
+
+---
+
+## Sport ekstremalny: Dart 🎯
+
+- Precyzja
+- Presja
+- Nerwy ze stali
+
+---
+
+## Sport ekstremalny: Szachy ♟️
+
+- Strategia
+- Cierpliwość
+- Ból po stracie hetmana
+
+---
+
+## R Studio – po co wykresy?
+
+Bo:
+- wyglądają mądrze
+- robią wrażenie
+- czasem nic nie tłumaczą
+
+---
+
+## Wykresy #1
+
+```{r}
+data(mtcars)
+plot(mtcars$wt, mtcars$mpg,
+     main = "mpg vs waga",
+     xlab = "waga",
+     ylab = "mpg",
+     pch = 19)
+abline(lm(mpg ~ wt, data = mtcars), lwd = 2)
+```
+
+```{r}
+hist(mtcars$hp,
+     main = "Histogram mocy",
+     xlab = "hp")
+```
+
+---
+
+## Wykresy #2
+
+```{r}
+boxplot(mpg ~ factor(cyl), data = mtcars,
+        main = "mpg wg cylindrów",
+        xlab = "cyl",
+        ylab = "mpg")
+```
+
+```{r}
+pairs(iris[,1:4], main = "Iris – macierz wykresów")
+```
+
+---
+
+## Wykresy #3 (bez sensu)
+
+```{r}
+data(airquality)
+avg_temp <- tapply(airquality$Temp, airquality$Month, mean, na.rm = TRUE)
+
+barplot(avg_temp,
+        main = "Średnia temperatura",
+        xlab = "Miesiąc",
+        ylab = "Temp")
+```
+
+```{r}
+pie(c(Dart=35, Szachy=35, Muzyka=30),
+    main = "Podział zainteresowań")
+```
+
+---
+
+## Bonus artystyczny
+
+```{r}
+set.seed(123)
+x <- rnorm(200)
+y <- rnorm(200)
+
+plot(x, y,
+     main = "Korelacja motywacji do rzeczywistości",
+     xlab = "motywacja",
+     ylab = "rzeczywistość",
+     pch = 19)
+```
+
+```{r}
+set.seed(42)
+ts <- cumsum(rnorm(50))
+
+plot(ts, type = "l",
+     main = "Indeks szczęścia po muzyce",
+     xlab = "czas",
+     ylab = "szczęście")
+```
+
+---
+
+## Podsumowanie
+
+- Muzyka
+- Dart i szachy
+- Wykresy w R Studio
+
+Im więcej wykresów, tym bardziej naukowo 😄
