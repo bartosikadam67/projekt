@@ -9,6 +9,8 @@ navbar:
     href: about.html
   - text: Analiza danych
     href: analiza.html
+  - text: prezentacja
+    href: prezentacja.html
 output:
   workflowr::wflow_html:
     toc: yes
