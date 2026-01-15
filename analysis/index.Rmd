@@ -16,6 +16,16 @@ Nazywam się **Adam Bartosik**, studiuję **Informatykę i Inżynierię Danych**
 
 ![Uniwersytet Przyrodniczy w Poznaniu](images/UP_Poznan.jpg){width="50%"}
 
----
+------------------------------------------------------------------------
 
-*strona została wykonana w workflow*
+## Co jest na mojej stronie?
+
+| Podstrona   | Zawartość                             |
+|-------------|---------------------------------------|
+| CV          | Moje CV                               |
+| Analiza     | Analiza danych muzycznych w R         |
+| Prezentacja | Prezentacja o moich zainteresowaniach |
+
+------------------------------------------------------------------------
+
+strona została wykonana w workflow

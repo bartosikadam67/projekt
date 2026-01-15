@@ -1,117 +1,158 @@
 ---
 title: "Moje zainteresowania"
-subtitle: "fajna prezentacja"
+subtitle: ":)"
 author: "Adam Bartosik"
 format:
   revealjs:
-    theme: simple
+    theme: night
     transition: slide
     slide-number: true
     center: true
     incremental: true
+    navigation-mode: linear
+    controls: true
+    progress: true
+    chalkboard: true
+    preview-links: true
 execute:
-  echo: true
+  echo: false
   warning: false
   message: false
 ---
 
+## 
+
+::: {.title-slide}
+### Jestem **Adam**
+<small>To prezentacja o moich zainteresowaniach 🫡</small>
+:::
+
+---
+
 ## Kim jestem
 
--   Jestem Adam, studiuję informkatykę.
+- Jestem **Adam**
+- Studiuję **informatykę i Inżynierię Danych na Uniwersytecie Przyrodniczym w Poznaniu**
 
-------------------------------------------------------------------------
+---
 
-## Dobra muzyka
+## Muzyka
 
--   Poprawia koncentrację
--   Buduje klimat
--   Ratuje poniedziałki
+- Poprawia koncentrację
+- Buduje klimat
+- Ratuje poniedziałki
 
-------------------------------------------------------------------------
+---
 
 ## Moi ulubieni wykonawcy
 
--   Kamil Zachód ![](images/images.jpg){width="73"}
--   Grajchłopek Kartiusz ![](images/dba62eee35b1ab823d5aac3b903c6a83.jpg){width="84"}
--   NajszybciejJakToMożliwe Skalisty ![](images/aa304018bf91e944a1cf635a545a7b31.jpg){width="155"}
+- Kamil Zachód ![](images/images.jpg){width="80"}
+- Grajchłopek Kartiusz ![](images/dba62eee35b1ab823d5aac3b903c6a83.jpg){width="101"}
+- NajszybciejJakToMożliwe Skalisty ![](images/aa304018bf91e944a1cf635a545a7b31.jpg){width="117"}
 
-------------------------------------------------------------------------
+---
 
-## Sport ekstremalny: Dart 🎯
+## Sporty ekstremalne
 
--   Precyzja
--   Presja
--   Nerwy ze stali
+Sporty ekstremalne to moja druga pasja — teraz przedstawię dwa z nich:
 
-------------------------------------------------------------------------
+---
 
-## Sport ekstremalny: Szachy ♟️
+## Dart 🎯
 
--   Strategia
--   Cierpliwość
--   Ból po stracie hetmana
+- Precyzja
+- Presja
+- Nerwy ze stali
 
-------------------------------------------------------------------------
+---
 
-## R Studio – po co wykresy?
+## Szachy ♟️
 
-Bo: - wyglądają mądrze - robią wrażenie - czasem nic nie tłumaczą
+- Strategia
+- Cierpliwość
+- Ból po stracie hetmana
 
-------------------------------------------------------------------------
+---
 
-## Wykresy #1
+## Wykresy w R (ggplot)
+
+Bardzo lubię robić różne wykresy za pomocą **ggplota**.  
+Na następnych slajdach pokażę kilka z nich :)
+
+---
+
+## WYKRESY
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+---
+
+## Wykres #1 — podział zainteresowań 😄
+
+```{r}
+hobby <- tibble::tibble(
+  hobby = c("Dart", "Szachy", "Muzyka","Wykresy w R"),
+  procent = c(35, 10, 35,20)
+)
+
+ggplot(hobby, aes(x = reorder(hobby, procent), y = procent)) +
+  geom_col(alpha = 0.85) +
+  coord_flip() +
+  labs(
+    title = "Podział zainteresowań (subiektywnie)",
+    subtitle = "To lubię robić",
+    x = NULL,
+    y = "%"
+  ) +
+  theme_minimal(base_size = 14)
+```
+
+---
+
+## Wykres #2 — mpg vs waga
 
 ```{r}
 data(mtcars)
-plot(mtcars$wt, mtcars$mpg,
-     main = "mpg vs waga",
-     xlab = "waga",
-     ylab = "mpg",
-     pch = 19)
-abline(lm(mpg ~ wt, data = mtcars), lwd = 2)
+
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm") +
+  labs(title = "mpg vs waga") +
+  theme_minimal()
 ```
+
+---
+
+## Wykres #3 — rozkład mocy
 
 ```{r}
-hist(mtcars$hp,
-     main = "Histogram mocy",
-     xlab = "hp")
+ggplot(mtcars, aes(hp)) +
+  geom_histogram(bins = 12) +
+  theme_minimal()
 ```
 
-------------------------------------------------------------------------
+---
 
-## Wykresy #2
+## Wykres #4 — Iris: zależności
 
 ```{r}
-boxplot(mpg ~ factor(cyl), data = mtcars,
-        main = "mpg wg cylindrów",
-        xlab = "cyl",
-        ylab = "mpg")
+ggplot(iris, aes(Sepal.Length, Petal.Length)) +
+  geom_point(alpha = 0.85, size = 2.8) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~Species) +
+  labs(
+    title = "Iris: Sepal.Length vs Petal.Length",
+    subtitle = "Dla każdego gatunku osobno + linia trendu",
+    x = "Sepal.Length",
+    y = "Petal.Length"
+  ) +
+  theme_minimal(base_size = 14)
 ```
 
-```{r}
-pairs(iris[,1:4], main = "Iris – macierz wykresów")
-```
-
-------------------------------------------------------------------------
-
-## Wykresy #3 (bez sensu)
-
-```{r}
-data(airquality)
-avg_temp <- tapply(airquality$Temp, airquality$Month, mean, na.rm = TRUE)
-
-barplot(avg_temp,
-        main = "Średnia temperatura",
-        xlab = "Miesiąc",
-        ylab = "Temp")
-```
-
-```{r}
-pie(c(Dart=35, Szachy=35, Muzyka=30),
-    main = "Podział zainteresowań")
-```
-
-------------------------------------------------------------------------
+---
 
 ## Bonus artystyczny
 
@@ -120,29 +161,14 @@ set.seed(123)
 x <- rnorm(200)
 y <- rnorm(200)
 
-plot(x, y,
-     main = "Korelacja motywacji do rzeczywistości",
-     xlab = "motywacja",
-     ylab = "rzeczywistość",
-     pch = 19)
+ggplot(data.frame(x, y), aes(x, y)) +
+  geom_point() +
+  theme_minimal()
 ```
 
-```{r}
-set.seed(42)
-ts <- cumsum(rnorm(50))
+---
 
-plot(ts, type = "l",
-     main = "Indeks szczęścia po muzyce",
-     xlab = "czas",
-     ylab = "szczęście")
-```
+## Dziękuję za uwagę
 
-------------------------------------------------------------------------
-
-## Podsumowanie
-
--   Muzyka
--   Dart i szachy
--   Wykresy w R Studio
 
 [Wróć do strony](index.html){.button}
