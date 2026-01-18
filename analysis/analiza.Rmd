@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## 2.3 Analiza danych w R – zakładka 3
+## Analiza danych w R
 
 ### Opis zbioru danych
 
