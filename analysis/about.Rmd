@@ -52,12 +52,23 @@ Jestem osobą zainteresowaną programowaniem oraz produkcją i realizacją nagra
 ### Narzędzia i programy
 
 -   Ableton Live
+
 -   Microsoft Office
+
 -   Visual Studio
+
+### Języki programowania
+
+| Nazwa  | Poziom znajomości     |
+|--------|-----------------------|
+| Python | Wysoka znajomość      |
+| C++    | Wysoka znajomość      |
+| C#     | Umiarkowana znajomość |
 
 ### Języki obce
 
 -   Angielski – komunikatywny
+-   Hiszpański - ekspert
 
 ### Umiejętności miękkie
 
